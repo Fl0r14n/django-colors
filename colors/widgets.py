@@ -18,8 +18,11 @@ class ColorPickerWidget(forms.TextInput):
         )
 
     def __init__(self, language=None, attrs=None):
+        default_attrs = {'style': 'float:left;'}
+        if attrs:
+            default_attrs.update(attrs)
         self.language = language or settings.LANGUAGE_CODE[:2]
-        super(ColorPickerWidget, self).__init__(attrs=attrs)
+        super(ColorPickerWidget, self).__init__(attrs=default_attrs)
 
     def render(self, name, value, attrs=None):
         rendered = super(ColorPickerWidget, self).render(name, value, attrs)
@@ -43,3 +46,4 @@ class ColorPickerWidget(forms.TextInput):
             });
         })(django.jQuery);
         </script>""" % (value, name, name, value))
+
