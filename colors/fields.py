@@ -7,6 +7,7 @@ from django.utils.text import capfirst
 
 from colors.widgets import ColorPickerWidget
 
+
 class ColorField(models.CharField):
     def __init__(self, *args, **kwargs):
         kwargs['max_length'] = 7
