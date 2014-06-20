@@ -26,11 +26,8 @@ class ColorPickerWidget(forms.TextInput):
         return rendered + mark_safe(u"""
         <script type="text/javascript">
         (function($){
-            $(function(){
-                var preview = $('<div class="color-picker-preview">
-                                    <div style="background-color:#%s">
-                                    </div>
-                                </div>').insertAfter('#id_%s');
+            $(function() {
+                var preview = $('<div class="color-picker-preview"><div style="background-color:#%s"/></div>').insertAfter('#id_%s');
                 $('#id_%s').ColorPicker({color: '%s',
                                          onSubmit: function(hsb, hex, rgb, el) {
                                                         $(el).val(hex);
